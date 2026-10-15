@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Eldi Trimi App Portfolio</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Portfolio">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#F2F3F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1016" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Geist:wght@400..700&amp;family=Geist+Mono:wght@400..600&amp;display=swap">
+<script async src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+</head>
+<body>
+<style id="pf-style">
+:root{
+  /* Layout: a holdings register. Portfolio summary and allocation bar on top, app tiles grouped by industry below; Present turns each holding into a full-bleed slide on a dark stage. */
+  --bg:#F2F3F6;
+  --surface:#FFFFFF;
+  --sunken:#E8EAF0;
+  --ink:#11141B;
+  --muted:#586072;
+  --line:#DADDE5;
+  --accent:#2B44E0;
+  --accent-ink:#FFFFFF;
+  --icon-ink:#FFFFFF;
+  --ok:#157A46; --ok-soft:#E1F2E8;
+  --warn:#9C5A00; --warn-soft:#FAEED8;
+  --dev:#34599A; --dev-soft:#E3EAF6;
+  --idle:#636A78; --idle-soft:#E9EAEE;
+  --danger:#B42318; --danger-soft:#FDECEA;
+  --cat-1:#2B44E0; --cat-2:#CF4A2A; --cat-3:#0A806F; --cat-4:#7443CC; --cat-5:#A77508; --cat-6:#46618A;
+  --shadow:0 1px 2px rgb(17 20 27 / 6%), 0 12px 28px -16px rgb(17 20 27 / 28%);
+  /* The presentation stage is deliberately dark in both themes */
+  --stage-bg:#0A0C11; --stage-panel:#121620; --stage-fg:#F3F4F7; --stage-muted:#8E95A6; --stage-line:#252A37;
+  --stage-cat-1:#8292FF; --stage-cat-2:#FF8566; --stage-cat-3:#3FC7B1; --stage-cat-4:#B18FFF; --stage-cat-5:#EDBB4E; --stage-cat-6:#93AACC;
+  --stage-ok:#4CC486; --stage-ok-soft:#12291E; --stage-warn:#F0B35A; --stage-warn-soft:#2D2312;
+  --stage-dev:#8FB0EA; --stage-dev-soft:#172236; --stage-idle:#A3A9B6; --stage-idle-soft:#1E222B;
+  --qr-bg:#FFFFFF; --qr-ink:#0A0C11;
+  --f-display:"Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --f-body:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1016; --surface:#171A22; --sunken:#1F232D; --ink:#ECEEF3; --muted:#9AA1B2; --line:#2A2F3B;
+    --accent:#8C9BFF; --accent-ink:#0E1016; --icon-ink:#0E1016;
+    --ok:#4CC486; --ok-soft:#14291F; --warn:#F0B35A; --warn-soft:#2E2413; --dev:#8FB0EA; --dev-soft:#1A2436; --idle:#A3A9B6; --idle-soft:#23262E;
+    --danger:#FF8A7A; --danger-soft:#33191A;
+    --cat-1:#8C9BFF; --cat-2:#FF8566; --cat-3:#3FC7B1; --cat-4:#B18FFF; --cat-5:#EDBB4E; --cat-6:#93AACC;
+    --shadow:0 1px 2px rgb(0 0 0 / 40%), 0 14px 30px -16px rgb(0 0 0 / 70%);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1016; --surface:#171A22; --sunken:#1F232D; --ink:#ECEEF3; --muted:#9AA1B2; --line:#2A2F3B;
+  --accent:#8C9BFF; --accent-ink:#0E1016; --icon-ink:#0E1016;
+  --ok:#4CC486; --ok-soft:#14291F; --warn:#F0B35A; --warn-soft:#2E2413; --dev:#8FB0EA; --dev-soft:#1A2436; --idle:#A3A9B6; --idle-soft:#23262E;
+  --danger:#FF8A7A; --danger-soft:#33191A;
+  --cat-1:#8C9BFF; --cat-2:#FF8566; --cat-3:#3FC7B1; --cat-4:#B18FFF; --cat-5:#EDBB4E; --cat-6:#93AACC;
+  --shadow:0 1px 2px rgb(0 0 0 / 40%), 0 14px 30px -16px rgb(0 0 0 / 70%);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body.presenting{overflow:hidden}
+.cat-1{--c:var(--cat-1)} .cat-2{--c:var(--cat-2)} .cat-3{--c:var(--cat-3)} .cat-4{--c:var(--cat-4)} .cat-5{--c:var(--cat-5)} .cat-6{--c:var(--cat-6)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.label{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* Page */
+.page{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px);padding-block:clamp(22px,4vw,40px) 48px}
+.masthead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 24px}
+.brand{display:flex;align-items:center;gap:16px;min-width:0}
+.brand-mark{display:grid;grid-template-columns:repeat(2,15px);gap:4px;flex:none}
+.brand-mark i{width:15px;height:15px;border-radius:5px;background:var(--cat-1)}
+.brand-mark i:nth-child(2){background:var(--cat-2)}
+.brand-mark i:nth-child(3){background:var(--cat-3)}
+.brand-mark i:nth-child(4){background:var(--sunken);box-shadow:inset 0 0 0 1.5px var(--line)}
+.brand-text{min-width:0}
+.eyebrow{margin:0 0 6px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{margin:0;font-family:var(--f-display);font-size:clamp(32px,5.2vw,50px);font-weight:720;line-height:.98;letter-spacing:-.035em;text-wrap:balance;font-variation-settings:"opsz" 96}
+.masthead-actions{display:flex;flex-wrap:wrap;gap:8px}
+.subtitle{max-width:62ch;margin:14px 0 0;color:var(--muted);font-size:16px;line-height:1.55;text-wrap:pretty}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border-radius:11px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14.5px;font-weight:600;line-height:1;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s ease, filter .15s ease, border-color .15s ease}
+.btn:hover{background:var(--sunken)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08);background:var(--accent)}
+.btn.danger{color:var(--danger);border-color:transparent;background:transparent}
+.btn.danger:hover{background:var(--danger-soft)}
+.btn.solid-danger{background:var(--danger);border-color:var(--danger);color:var(--surface)}
+.btn:disabled{opacity:.55;cursor:default}
+.btn svg{width:16px;height:16px;flex:none}
+.edit-only{display:none!important}
+.can-edit .edit-only{display:inline-flex!important}
+.icon-btn{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:var(--muted);cursor:pointer;flex:none}
+.icon-btn:hover{background:var(--sunken);color:var(--ink)}
+.icon-btn svg{width:18px;height:18px}
+
+/* Summary */
+.summary{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px 48px;align-items:end;margin-top:28px;padding-block:22px;border-block:1px solid var(--line)}
+.stats{display:flex;flex-wrap:wrap;gap:14px 34px;margin:0}
+.stat dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stat dd{margin:6px 0 0;font-family:var(--f-display);font-size:36px;font-weight:650;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.alloc{min-width:0}
+.alloc-head{display:flex;justify-content:space-between;gap:12px}
+.alloc-bar{display:flex;gap:3px;height:10px;margin:10px 0 12px}
+.alloc-bar span{flex:1 1 0;min-width:6px;border-radius:3px;background:var(--c)}
+.alloc-legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13.5px;color:var(--muted)}
+.alloc-legend li{display:inline-flex;align-items:center;gap:8px}
+.alloc-legend b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c, var(--muted));flex:none}
+
+/* Toolbar */
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin:24px 0 30px}
+.search{position:relative;flex:1 1 260px;max-width:420px}
+.search svg{position:absolute;left:13px;top:50%;width:16px;height:16px;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.search input{width:100%;height:42px;padding:0 14px 0 38px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font:inherit;font-size:16px}
+.search input::placeholder{color:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.seg .label{margin-right:8px}
+.seg button{height:34px;padding:0 12px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--muted);font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.seg button:hover{color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--surface);border-color:var(--line);color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgb(17 20 27 / 6%)}
+
+/* Groups and tiles */
+#groups{display:grid;gap:38px}
+.group{display:grid;gap:16px}
+.group-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.group-head h2{display:flex;align-items:center;gap:10px;margin:0;font-family:var(--f-display);font-size:22px;font-weight:650;letter-spacing:-.015em}
+.group-count{margin-left:auto;font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(max(250px, calc((100% - 28px) / 3)),1fr));gap:14px}
+.tile{position:relative;display:flex;flex-direction:column;gap:10px;min-width:0;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:18px;transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
+.tile:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--c)}
+.tile:has(.tile-link:focus-visible){outline:2px solid var(--c);outline-offset:2px}
+.tile-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.app-icon{--s:50px;display:grid;place-items:center;flex:none;width:var(--s);height:var(--s);border-radius:calc(var(--s) * .27);background-color:var(--c);background-image:linear-gradient(150deg, rgb(255 255 255 / 24%), rgb(255 255 255 / 0%) 58%);box-shadow:inset 0 0 0 1px rgb(255 255 255 / 12%);color:var(--icon-ink);font-family:var(--f-display);font-size:calc(var(--s) * .38);font-weight:760;letter-spacing:-.03em;line-height:1;user-select:none}
+.app-icon.lg{--s:60px}
+.app-icon.sm{--s:40px}
+.app-icon.xl{--s:92px}
+.tile-name{margin:4px 0 0;font-family:var(--f-display);font-size:20px;font-weight:650;line-height:1.15;letter-spacing:-.015em}
+.tile-link{padding:0;border:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;text-align:left;text-decoration:none;cursor:pointer}
+.tile-link::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.tile-link:focus-visible{outline:none}
+.tile-tag{margin:0;color:var(--muted);font-size:14.5px;line-height:1.45}
+.tile-meta{display:flex;flex-wrap:wrap;gap:4px 8px;margin:0;color:var(--muted);font-size:12.5px}
+.tile-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.host{min-width:0;font-family:var(--f-mono);font-size:12px;color:var(--ink);overflow-wrap:anywhere}
+.host .arr{color:var(--c)}
+.host.none{color:var(--muted)}
+.tile-info{position:relative;z-index:1;height:30px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--muted);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;flex:none}
+.tile-info:hover{color:var(--ink);border-color:var(--c)}
+
+/* Status pills */
+.pill{--pill:var(--idle);--pill-soft:var(--idle-soft);display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;background:var(--pill-soft);color:var(--pill);font-size:12px;font-weight:600;white-space:nowrap}
+.pill i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-live{--pill:var(--ok);--pill-soft:var(--ok-soft)}
+.s-beta{--pill:var(--warn);--pill-soft:var(--warn-soft)}
+.s-dev{--pill:var(--dev);--pill-soft:var(--dev-soft)}
+.s-concept i,.s-paused i{background:transparent;box-shadow:inset 0 0 0 1.5px currentColor}
+.group.st-live .dot{background:var(--ok)} .group.st-beta .dot{background:var(--warn)} .group.st-dev .dot{background:var(--dev)}
+
+.empty{display:grid;justify-items:center;gap:12px;padding:44px 24px;border:1px dashed var(--line);border-radius:18px;color:var(--muted);text-align:center}
+.empty strong{color:var(--ink);font-family:var(--f-display);font-size:20px;font-weight:650}
+.empty p{margin:0;max-width:46ch}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+
+/* Sheets */
+dialog.sheet{width:min(660px, calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 48px);padding:0;border:0;border-radius:22px;background:var(--surface);color:var(--ink);box-shadow:var(--shadow);overflow:hidden}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet::backdrop{background:rgb(8 10 14 / 50%);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.sheet-form,.sheet-wrap{display:flex;flex-direction:column;min-height:0;max-height:inherit;flex:1}
+.sheet-head{display:flex;align-items:flex-start;gap:16px;padding:22px 22px 16px;border-bottom:1px solid var(--line)}
+.sheet-head h2{margin:0;font-family:var(--f-display);font-size:24px;font-weight:680;line-height:1.1;letter-spacing:-.02em}
+.sheet-title{flex:1;min-width:0}
+.sheet-title .eyebrow{margin-bottom:6px}
+.d-tag{margin:6px 0 0;color:var(--muted);font-size:15px}
+.sheet-body{flex:1;min-height:0;overflow:auto;padding:20px 22px;display:grid;gap:18px;align-content:start}
+.sheet-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:14px 22px calc(16px + env(safe-area-inset-bottom, 0px));border-top:1px solid var(--line);background:var(--surface)}
+.sheet-foot .grow{flex:1}
+.form-msg{margin:0;color:var(--danger);font-size:13.5px;font-weight:500}
+.form-msg.ok{color:var(--ok)}
+.form-msg:empty{display:none}
+.d-desc{margin:0;font-size:15.5px;line-height:1.6;max-width:62ch}
+.d-features{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.d-features li{display:grid;grid-template-columns:10px 1fr;gap:12px;align-items:baseline;font-size:14.5px}
+.d-features li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--c);transform:translateY(-1px)}
+.d-meta{display:grid;margin:0;border-top:1px solid var(--line)}
+.d-meta div{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.d-meta dt{padding-top:2px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.d-meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.d-meta a{color:var(--ink);text-decoration-color:var(--line);text-underline-offset:3px}
+.link-field{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-family:var(--f-mono);font-size:13px}
+
+/* Forms */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.span2{grid-column:1 / -1}
+.field{display:grid;gap:6px;min-width:0;align-content:start}
+.field > span{font-size:12.5px;font-weight:600;color:var(--muted)}
+.field > span em{font-style:normal;font-weight:400}
+.field input,.field select,.field textarea{width:100%;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px;line-height:1.4}
+.field textarea{resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+.err{color:var(--danger);font-size:12.5px;font-weight:500}
+.check{display:flex;align-items:center;gap:10px;font-size:14.5px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--accent)}
+.confirm{display:grid;gap:10px;margin:0 22px;padding:14px 16px;border-radius:12px;background:var(--danger-soft);color:var(--ink);font-size:14.5px}
+.confirm p{margin:0}
+.confirm .row{display:flex;flex-wrap:wrap;gap:8px}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));z-index:70;max-width:calc(100vw - 32px);padding:11px 16px;border-radius:12px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:500;box-shadow:var(--shadow);transform:translate(-50%, 8px);opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease}
+.toast.show{opacity:1;transform:translate(-50%, 0)}
+
+/* Presentation stage */
+.stage{position:fixed;inset:0;z-index:50;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding-top:env(safe-area-inset-top, 0px);padding-bottom:env(safe-area-inset-bottom, 0px);background:var(--stage-bg);color:var(--stage-fg);font-family:var(--f-body);color-scheme:dark;outline:none;
+  --ok:var(--stage-ok); --ok-soft:var(--stage-ok-soft); --warn:var(--stage-warn); --warn-soft:var(--stage-warn-soft);
+  --dev:var(--stage-dev); --dev-soft:var(--stage-dev-soft); --idle:var(--stage-idle); --idle-soft:var(--stage-idle-soft);
+  --icon-ink:var(--stage-bg); --accent:var(--stage-fg)}
+.stage .cat-1{--c:var(--stage-cat-1)} .stage .cat-2{--c:var(--stage-cat-2)} .stage .cat-3{--c:var(--stage-cat-3)} .stage .cat-4{--c:var(--stage-cat-4)} .stage .cat-5{--c:var(--stage-cat-5)} .stage .cat-6{--c:var(--stage-cat-6)}
+.stage-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:16px clamp(16px,4vw,48px)}
+.stage-brand{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--stage-muted)}
+.stage-count{margin-left:auto;font-family:var(--f-mono);font-size:12.5px;color:var(--stage-muted);font-variant-numeric:tabular-nums}
+.stage-body{display:grid;min-height:0;overflow:auto;padding-inline:clamp(16px,5vw,72px);touch-action:pan-y}
+.stage-nav{display:flex;align-items:center;gap:16px;padding:14px clamp(16px,4vw,48px) 18px}
+.stage-progress{flex:1;height:3px;border-radius:3px;background:var(--stage-line);overflow:hidden}
+.stage-progress i{display:block;width:0;height:100%;background:var(--stage-fg);transition:width .35s ease}
+.st-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:36px;min-width:36px;padding:0 13px;border:1px solid var(--stage-line);border-radius:10px;background:transparent;color:var(--stage-fg);font:inherit;font-size:13px;font-weight:500;cursor:pointer}
+.st-btn:hover{background:var(--stage-panel)}
+.st-btn:disabled{opacity:.3;cursor:default}
+.stage :focus-visible{outline-color:var(--stage-fg)}
+
+.slide{align-self:center;width:100%;max-width:1240px;margin-inline:auto;padding-block:20px 32px;animation:slide-in .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes slide-in{from{opacity:0;transform:translateX(var(--dir, 24px))}to{opacity:1;transform:none}}
+.s-eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 18px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--stage-muted)}
+.s-label{margin:0 0 12px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--stage-muted)}
+.s-ind{display:inline-flex;align-items:center;gap:8px;color:var(--c)}
+.s-ind i{width:9px;height:9px;border-radius:2px;background:var(--c)}
+.s-mega{margin:0;font-family:var(--f-display);font-size:clamp(56px,11vw,160px);font-weight:760;line-height:.86;letter-spacing:-.055em;text-wrap:balance;font-variation-settings:"opsz" 96}
+.s-title{margin:0 0 28px;font-family:var(--f-display);font-size:clamp(34px,4.8vw,66px);font-weight:700;line-height:1;letter-spacing:-.04em;text-wrap:balance}
+.s-lede{max-width:46ch;margin:24px 0 0;font-size:clamp(18px,2vw,24px);line-height:1.4;color:var(--stage-fg);text-wrap:pretty}
+.s-by{margin:12px 0 0;color:var(--stage-muted);font-size:15px}
+.s-by strong{color:var(--stage-fg);font-weight:600}
+.s-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(28px,5vh,56px) 0 0;border-top:1px solid var(--stage-line)}
+.s-kpis div{padding:18px 18px 0 0}
+.s-kpis dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--stage-muted)}
+.s-kpis dd{margin:10px 0 0;font-family:var(--f-display);font-size:clamp(42px,5.4vw,76px);font-weight:650;line-height:1;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.s-alloc{margin-top:clamp(26px,4.5vh,48px)}
+.s-alloc-bar{display:flex;gap:4px;height:16px}
+.s-alloc-bar span{flex:1 1 0;min-width:8px;border-radius:4px;background:var(--c);transform-origin:left center;animation:grow .9s .15s cubic-bezier(.2,.8,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.s-alloc-legend{display:flex;flex-wrap:wrap;gap:12px 32px;margin:16px 0 0;padding:0;list-style:none;font-size:15px}
+.s-alloc-legend li{display:flex;align-items:baseline;gap:10px;min-width:0}
+.s-alloc-legend i{flex:none;width:10px;height:10px;border-radius:3px;background:var(--c);transform:translateY(1px)}
+.s-alloc-legend b{font-weight:600}
+.s-alloc-legend small{display:block;color:var(--stage-muted);font-size:13px}
+
+.s-table-wrap{overflow-x:auto}
+.s-table{width:100%;border-collapse:collapse;font-size:15.5px}
+.s-table th{padding:0 18px 12px 0;border-bottom:1px solid var(--stage-line);font-family:var(--f-mono);font-size:11.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--stage-muted);text-align:left;white-space:nowrap}
+.s-table td{padding:14px 18px 14px 0;border-bottom:1px solid var(--stage-line);vertical-align:middle}
+.s-table td.num{font-family:var(--f-mono);font-size:13.5px;color:var(--stage-muted);white-space:nowrap}
+.s-app{display:flex;align-items:center;gap:14px;min-width:0}
+.s-app b{display:block;font-family:var(--f-display);font-size:19px;font-weight:650;letter-spacing:-.01em}
+.s-app small{display:block;color:var(--stage-muted);font-size:13.5px}
+
+.slide-app{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.s-name{margin:0;font-family:var(--f-display);font-size:clamp(44px,7.4vw,108px);font-weight:720;line-height:.92;letter-spacing:-.045em;text-wrap:balance;font-variation-settings:"opsz" 96}
+.s-tag{max-width:30ch;margin:18px 0 0;font-size:clamp(19px,2.2vw,27px);line-height:1.3;text-wrap:balance}
+.s-desc{max-width:58ch;margin:16px 0 0;font-size:clamp(15px,1.35vw,18px);line-height:1.6;color:var(--stage-muted)}
+.s-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 28px;margin:28px 0 0;padding:0;list-style:none}
+.s-feats li{display:grid;grid-template-columns:10px 1fr;gap:12px;align-items:baseline;padding-block:12px;border-top:1px solid var(--stage-line);font-size:15.5px;line-height:1.45}
+.s-feats li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--c);transform:translateY(-1px)}
+.s-side{position:relative;display:grid;gap:22px;padding:clamp(20px,2.4vw,32px);border:1px solid var(--stage-line);border-radius:24px;background:var(--stage-panel);overflow:hidden;isolation:isolate}
+.s-side::before{content:"";position:absolute;top:-35%;right:-30%;z-index:-1;width:85%;aspect-ratio:1;border-radius:50%;background:var(--c);opacity:.2;filter:blur(60px);pointer-events:none}
+.s-side-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.s-meta{display:grid;margin:0}
+.s-meta div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding-block:10px;border-top:1px solid var(--stage-line);font-size:14.5px}
+.s-meta dt{padding-top:2px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--stage-muted)}
+.s-meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.s-open{display:flex;align-items:center;gap:18px}
+.qr{flex:none;width:112px;height:112px;padding:6px;border-radius:12px;background:var(--qr-bg)}
+.qr:empty{display:none}
+.qr svg{display:block;width:100%;height:100%}
+.s-open-text{min-width:0}
+.s-scan{margin:0;font-size:13px;color:var(--stage-muted)}
+.s-host{margin:2px 0 0;font-family:var(--f-mono);font-size:13px;overflow-wrap:anywhere}
+.s-btn{display:inline-flex;align-items:center;gap:8px;height:44px;margin-top:12px;padding:0 18px;border-radius:12px;background:var(--c);color:var(--stage-bg);font-weight:650;text-decoration:none}
+.s-btn:hover{filter:brightness(1.08)}
+.s-nolink{margin:0;padding-top:12px;border-top:1px solid var(--stage-line);color:var(--stage-muted);font-size:14.5px}
+
+.s-pipe{display:grid;max-width:940px;margin:0;padding:0;list-style:none}
+.s-pipe li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px;padding-block:18px;border-top:1px solid var(--stage-line)}
+.s-pipe b{display:block;font-family:var(--f-display);font-size:22px;font-weight:650;letter-spacing:-.015em}
+.s-pipe small{display:block;color:var(--stage-muted);font-size:14.5px}
+.s-close{max-width:52ch;margin:36px 0 0;font-size:clamp(18px,2vw,22px);line-height:1.45;color:var(--stage-muted)}
+.s-close strong{color:var(--stage-fg);font-weight:600}
+
+@media (max-width:860px){
+  .slide-app{grid-template-columns:1fr}
+  .s-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .summary{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .form-grid{grid-template-columns:1fr}
+  .s-feats{grid-template-columns:1fr}
+  .hide-sm{display:none}
+  .d-meta div{grid-template-columns:104px minmax(0,1fr)}
+  dialog.sheet{width:100%;max-height:92dvh;margin:auto auto 0;border-radius:22px 22px 0 0}
+  .stage-brand{display:none}
+  .seg{width:100%}
+  .seg .label{display:none}
+  .seg button{flex:1 1 0;padding:0 6px}
+  .st-label{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<template id="pf-shell">
+<div class="page">
+  <header class="masthead">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div class="brand-text">
+        <p class="eyebrow" data-bind="owner"></p>
+        <h1 data-bind="title"></h1>
+      </div>
+    </div>
+    <div class="masthead-actions">
+      <button type="button" class="btn edit-only" id="btn-settings">Edit details</button>
+      <button type="button" class="btn edit-only" id="btn-add"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>Add app</button>
+      <button type="button" class="btn primary" id="btn-present"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg>Present</button>
+    </div>
+  </header>
+  <p class="subtitle" data-bind="subtitle"></p>
+
+  <section class="summary" aria-label="Portfolio summary">
+    <dl class="stats" id="stats"></dl>
+    <div class="alloc" id="alloc">
+      <div class="alloc-head"><span class="label">Allocation by industry</span><span class="label" id="alloc-total"></span></div>
+      <div class="alloc-bar" id="alloc-bar"></div>
+      <ul class="alloc-legend" id="alloc-legend"></ul>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <label class="search">
+      <span class="sr-only">Search apps</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10.5 10.5 14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      <input id="q" type="search" placeholder="Search apps, clients, industries" autocomplete="off" spellcheck="false">
+    </label>
+    <div class="seg" role="group" aria-label="Group apps by">
+      <span class="label" aria-hidden="true">Group by</span>
+      <button type="button" data-group="industry" aria-pressed="true">Industry</button>
+      <button type="button" data-group="type" aria-pressed="false">Type</button>
+      <button type="button" data-group="status" aria-pressed="false">Status</button>
+      <button type="button" data-group="client" aria-pressed="false">Client</button>
+    </div>
+  </div>
+
+  <main id="groups"></main>
+
+  <footer class="foot">
+    <span id="mode-note"></span>
+    <span id="updated-note"></span>
+  </footer>
+</div>
+
+<dialog id="dlg-detail" class="sheet" aria-labelledby="d-name">
+  <div class="sheet-wrap" id="detail-body"></div>
+</dialog>
+
+<dialog id="dlg-edit" class="sheet" aria-labelledby="edit-title">
+  <form id="edit-form" class="sheet-form" novalidate>
+    <div class="sheet-head">
+      <div class="sheet-title"><p class="eyebrow">Portfolio</p><h2 id="edit-title">Add an app</h2></div>
+      <button type="button" class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg></button>
+    </div>
+    <div class="sheet-body">
+      <div class="form-grid">
+        <label class="field span2"><span>App name</span><input id="f-name" maxlength="60" autocomplete="off"><small class="err" id="err-name" hidden>Give the app a name.</small></label>
+        <label class="field span2"><span>Link <em>what opens when you tap the app</em></span><input id="f-url" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://your-app.vercel.app"><small class="err" id="err-url" hidden>This doesn’t look like a web address. Try something like https://your-app.vercel.app</small></label>
+        <label class="field span2"><span>One-line pitch</span><input id="f-tagline" maxlength="90" autocomplete="off" placeholder="What it does, in one line"></label>
+        <label class="field span2"><span>Description</span><textarea id="f-desc" rows="3" placeholder="Two or three sentences for the presentation slide"></textarea></label>
+        <label class="field"><span>Industry</span><input id="f-industry" list="dl-industry" autocomplete="off" placeholder="Accounting &amp; Tax"></label>
+        <label class="field"><span>Type</span><input id="f-type" list="dl-type" autocomplete="off" placeholder="iPhone web app"></label>
+        <label class="field"><span>Status</span><select id="f-status"><option>Live</option><option>Beta</option><option>In development</option><option>Concept</option><option>Paused</option></select></label>
+        <label class="field"><span>Built for</span><input id="f-client" list="dl-client" autocomplete="off" placeholder="Client or Personal use"></label>
+        <label class="field"><span>Platform</span><input id="f-platform" autocomplete="off" placeholder="iPhone Home Screen, Vercel"></label>
+        <label class="field"><span>Since</span><input id="f-since" type="month"></label>
+        <label class="field span2"><span>Tech stack</span><input id="f-stack" autocomplete="off" placeholder="Single-file HTML/JS"></label>
+        <label class="field span2"><span>Key features <em>one per line, up to 6</em></span><textarea id="f-features" rows="4"></textarea></label>
+        <label class="field"><span>GitHub repository</span><input id="f-repo" autocomplete="off" spellcheck="false" placeholder="Eldi89/app-name"></label>
+        <label class="field"><span>Icon letters <em>blank for automatic</em></span><input id="f-mark" maxlength="2" autocomplete="off"></label>
+        <label class="check span2"><input type="checkbox" id="f-present"><span>Show this app in the presentation</span></label>
+      </div>
+      <p class="form-msg" id="edit-msg" role="alert"></p>
+    </div>
+    <div class="confirm" id="del-confirm" hidden>
+      <p id="del-text"></p>
+      <div class="row"><button type="button" class="btn solid-danger" id="del-go">Delete app</button><button type="button" class="btn" id="del-keep">Keep it</button></div>
+    </div>
+    <div class="sheet-foot">
+      <button type="button" class="btn danger" id="btn-delete">Delete</button>
+      <span class="grow"></span>
+      <button type="button" class="btn" data-close>Cancel</button>
+      <button type="submit" class="btn primary" id="btn-save">Save app</button>
+    </div>
+  </form>
+  <datalist id="dl-industry"></datalist>
+  <datalist id="dl-type"></datalist>
+  <datalist id="dl-client"></datalist>
+</dialog>
+
+<dialog id="dlg-settings" class="sheet" aria-labelledby="set-title">
+  <form id="settings-form" class="sheet-form" novalidate>
+    <div class="sheet-head">
+      <div class="sheet-title"><p class="eyebrow">Cover and header</p><h2 id="set-title">Portfolio details</h2></div>
+      <button type="button" class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg></button>
+    </div>
+    <div class="sheet-body">
+      <div class="form-grid">
+        <label class="field span2"><span>Portfolio name</span><input id="s-title" maxlength="40" autocomplete="off"></label>
+        <label class="field span2"><span>Owner</span><input id="s-owner" maxlength="60" autocomplete="off"></label>
+        <label class="field span2"><span>Summary line <em>shown under the name and on the cover slide</em></span><textarea id="s-subtitle" rows="3" maxlength="200"></textarea></label>
+      </div>
+      <p class="form-msg" id="set-msg" role="alert"></p>
+    </div>
+    <div class="sheet-foot">
+      <span class="grow"></span>
+      <button type="button" class="btn" data-close>Cancel</button>
+      <button type="submit" class="btn primary" id="btn-save-settings">Save details</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="stage" class="stage" hidden tabindex="-1" role="dialog" aria-modal="true" aria-label="Portfolio presentation">
+  <div class="stage-top">
+    <span class="stage-brand" id="stage-brand"></span>
+    <span class="stage-count" id="stage-count" aria-live="polite"></span>
+    <button type="button" class="st-btn" id="st-full">Full screen</button>
+    <button type="button" class="st-btn" id="st-close">Exit</button>
+  </div>
+  <div class="stage-body" id="stage-body"></div>
+  <div class="stage-nav">
+    <button type="button" class="st-btn" id="st-prev" aria-label="Previous slide">&#8592;<span class="st-label"> Previous</span></button>
+    <div class="stage-progress" aria-hidden="true"><i id="stage-bar"></i></div>
+    <button type="button" class="st-btn" id="st-next" aria-label="Next slide"><span class="st-label">Next </span>&#8594;</button>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+</template>
+<div id="app"></div>
+<script type="application/json" id="pf-data">{
+ "version": 1,
+ "updated": "2026-10-15",
+ "settings": {
+  "title": "App Portfolio",
+  "owner": "Eldi Trimi",
+  "subtitle": "Apps designed, built and shipped in-house for accounting, hospitality and personal wellness."
+ },
+ "apps": [
+  {
+   "id": "nota-spese",
+   "no": 1,
+   "name": "Nota Spese",
+   "mark": "NS",
+   "tagline": "Expense reports from a receipt photo",
+   "description": "Photograph a receipt and the app crops it into a compressed PDF, reads the date, amount and vendor on the device, and attaches it to the expense. At month end it exports straight into the LTA reimbursement template.",
+   "url": "https://notaspese-v2.vercel.app",
+   "industry": "Accounting & Tax",
+   "type": "iPhone web app",
+   "status": "Live",
+   "client": "LTA US Advisors",
+   "platform": "iPhone Home Screen, Vercel",
+   "stack": "Single-file HTML/JS, IndexedDB, on-device OCR",
+   "since": "2026-06",
+   "features": [
+    "Automatic edge detection and crop, with manual correction",
+    "On-device OCR fills in date, amount and vendor",
+    "Exports the official LTA template plus a receipts ZIP",
+    "Backup and restore of expenses and receipts"
+   ],
+   "repo": "Eldi89/notaspese-v2",
+   "present": true
+  },
+  {
+   "id": "tax-wp-agents",
+   "no": 2,
+   "name": "Tax Workpaper Agents",
+   "mark": "TW",
+   "tagline": "Return workpapers from the TB, GL and prior-year return",
+   "description": "An orchestrator agent working as a senior tax manager directs specialist agents that turn a client's trial balance, general ledger and prior-year return into the workpapers needed to file, with figures organized for entry in CCH.",
+   "url": "",
+   "industry": "Accounting & Tax",
+   "type": "AI agent system",
+   "status": "In development",
+   "client": "LTA US Advisors",
+   "platform": "Claude Code",
+   "stack": "Multi-agent orchestration, Excel workpaper template",
+   "since": "2026-09",
+   "features": [
+    "Review loop until the workpapers are clean",
+    "No invented figures: asks for any missing file",
+    "Checks current IRS and state rules",
+    "Built for US subsidiaries of foreign parents"
+   ],
+   "repo": "",
+   "present": true
+  },
+  {
+   "id": "behind-the-bar",
+   "no": 3,
+   "name": "Behind the Bar",
+   "mark": "BB",
+   "tagline": "Bartender scheduling for a New York bar",
+   "description": "Builds the week from staffing targets and each bartender's availability, checks it against New York labor rules and estimates labor cost before the schedule goes out to the team.",
+   "url": "https://bar-schedule-six.vercel.app",
+   "industry": "Hospitality",
+   "type": "iPhone web app",
+   "status": "Live",
+   "client": "New York bar",
+   "platform": "iPhone Home Screen, Vercel",
+   "stack": "Single-file HTML/JS",
+   "since": "2026-09",
+   "features": [
+    "Auto-fill from staffing targets, availability and time off",
+    "NY checks for overtime, spread of hours, meal breaks and day of rest",
+    "Labor cost with the NYC tip credit and labor % of sales",
+    "Shares as a picture, text, staff link or calendar files"
+   ],
+   "repo": "Eldi89/bar-schedule",
+   "present": true
+  },
+  {
+   "id": "scheda",
+   "no": 4,
+   "name": "Scheda",
+   "mark": "S",
+   "tagline": "Guided bodyweight training, three days a week",
+   "description": "Monday, Wednesday and Friday sessions under 40 minutes, with an animated demo of every movement and timers that run the rounds, rests and AMRAP on their own.",
+   "url": "https://scheda-ten.vercel.app",
+   "industry": "Health & Wellness",
+   "type": "iPhone web app",
+   "status": "Live",
+   "client": "Personal use",
+   "platform": "iPhone Home Screen, Vercel",
+   "stack": "Single-file HTML/JS, inline SVG animation",
+   "since": "2026-09",
+   "features": [
+    "Animated demo for all 12 exercises",
+    "Automatic round, rest and 20-minute AMRAP timers",
+    "Session clock with a 40-minute cap and audio cues",
+    "Resumes mid-session and keeps a training history"
+   ],
+   "repo": "Eldi89/scheda",
+   "present": true
+  },
+  {
+   "id": "aura-routine",
+   "no": 5,
+   "name": "Aura Routine",
+   "mark": "AR",
+   "tagline": "Daily chakra and mudra meditation",
+   "description": "Guides the 21-day rebalancing routine step by step: seven chakra mudras, alternate-nostril breathing and the closing seal, with sound and position cues.",
+   "url": "https://aura-meditation-self.vercel.app",
+   "industry": "Health & Wellness",
+   "type": "iPhone web app",
+   "status": "Live",
+   "client": "Personal use",
+   "platform": "iPhone Home Screen, Vercel",
+   "stack": "Single-file HTML/JS",
+   "since": "2026-09",
+   "features": [
+    "21-day Phase 1 rebalancing routine",
+    "Seven chakra mudras, one step at a time",
+    "Nadi Shodhana breathing and the Anjali seal",
+    "Sound and position cues"
+   ],
+   "repo": "Eldi89/aura-meditation",
+   "present": true
+  },
+  {
+   "id": "fermata",
+   "no": 6,
+   "name": "Fermata",
+   "mark": "Fe",
+   "tagline": "Five-minute lessons for the subway",
+   "description": "A learning app built around the morning commute: seven subjects drawn as subway lines, from 101 to 301, with short daily lessons, longer Deep Dives, quizzes and level exams, plus a live morning market report that links each headline to the lesson that explains it.",
+   "url": "https://fermata-nine.vercel.app",
+   "industry": "Education",
+   "type": "iPhone web app",
+   "status": "Live",
+   "client": "Personal use",
+   "platform": "iPhone Home Screen, Vercel",
+   "stack": "Single-file HTML/JS, service worker, Vercel serverless function",
+   "since": "2026-10",
+   "features": [
+    "98 lessons across finance, accounting, investing, stocks, AI, self improvement and inner growth",
+    "Quizzes, level exams, placement tests and a spaced review deck",
+    "Live morning report with market prices and headlines",
+    "Works offline in the tunnel and reads lessons aloud"
+   ],
+   "repo": "Eldi89/fermata",
+   "present": true
+  }
+ ]
+}</script>
+<script id="pf-app">
+(function () {
+  'use strict';
+
+  /* ---------- Page source (used to save a new version of this page) ---------- */
+  var SC = '<' + '/script>';
+  var OPEN_SCRIPT = '<' + 'script';
+  var PAGE_TITLE = 'Eldi Trimi App Portfolio';
+  var FONT_HREF = 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap';
+  var QR_SRC = 'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js';
+  var RESET = ':root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}';
+  var SKELETON_OPEN = '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>' + RESET + '</style></head><body>\n';
+  var SKELETON_CLOSE = '\n</body></html>';
+
+  /* ---------- Constants ---------- */
+  var UI_KEY = 'pf-ui-v1';
+  var LOCAL_KEY = 'pf-local-v1';
+  var FLASH_KEY = 'pf-flash-v1';
+  var STATUSES = ['Live', 'Beta', 'In development', 'Concept', 'Paused'];
+  var STATUS_CLASS = { 'Live': 's-live', 'Beta': 's-beta', 'In development': 's-dev', 'Concept': 's-concept', 'Paused': 's-paused' };
+  var GROUP_STATUS_CLASS = { 'Live': 'st-live', 'Beta': 'st-beta', 'In development': 'st-dev' };
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var MONTHS_LONG = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var BASE_INDUSTRIES = ['Accounting & Tax', 'Hospitality', 'Health & Wellness', 'Legal', 'Real Estate', 'Retail', 'Logistics', 'Manufacturing', 'Education'];
+  var BASE_TYPES = ['iPhone web app', 'Web app', 'AI agent system', 'Automation', 'Spreadsheet tool', 'Desktop app'];
+  var BASE_CLIENTS = ['Personal use'];
+  var READ_ONLY_CODES = ['not_writer', 'not_granted', 'consent_required', 'capability_disabled', 'capability_removed', 'not_declared', 'read_only_path'];
+  var KNOWN_CODES = READ_ONLY_CODES.concat(['conflict', 'too_large', 'invalid_content', 'rate_limited', 'transform_error']);
+
+  /* ---------- Small helpers ---------- */
+  function lsGet(k) { try { var v = window.localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+  function lsSet(k, v) { try { window.localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
+  function ssTake(k) { try { var v = window.sessionStorage.getItem(k); if (v) window.sessionStorage.removeItem(k); return v; } catch (e) { return null; } }
+  function ssSet(k, v) { try { window.sessionStorage.setItem(k, v); } catch (e) { /* not available */ } }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function str(v) { return v == null ? '' : String(v).trim(); }
+  function uid() { return 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : (many || one + 's')); }
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function hostOf(url) {
+    try { var u = new URL(url); return u.host + u.pathname.replace(/\/+$/, ''); } catch (e) { return url; }
+  }
+  function fmtSince(s) { var m = /^(\d{4})-(\d{2})$/.exec(s || ''); return m ? MONTHS[+m[2] - 1] + ' ' + m[1] : ''; }
+  function fmtDate(s) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s || ''); return m ? MONTHS[+m[2] - 1] + ' ' + (+m[3]) + ', ' + m[1] : ''; }
+  function todayISO() { var d = new Date(); return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); }
+  function normalizeUrl(v) {
+    v = str(v);
+    if (!v) return '';
+    if (!/^[a-z][a-z0-9+.-]*:/i.test(v)) v = 'https://' + v;
+    try {
+      var u = new URL(v);
+      if ((u.protocol !== 'https:' && u.protocol !== 'http:') || u.hostname.indexOf('.') === -1) return null;
+      return (u.pathname === '/' && !u.search && !u.hash) ? u.origin : u.href;
+    } catch (e) { return null; }
+  }
+  function repoUrl(r) { return /^[\w.-]+\/[\w.-]+$/.test(r || '') ? 'https://github.com/' + r : ''; }
+  function markOf(a) {
+    if (a.mark) return a.mark.slice(0, 2);
+    var words = a.name.split(/\s+/).filter(function (w) { return w && !/^(the|of|and|&|a|an|for|di|la|il|per|de)$/i.test(w); });
+    if (words.length >= 2) return (words[0].charAt(0) + words[1].charAt(0)).toUpperCase();
+    return (words[0] || a.name || '?').charAt(0).toUpperCase();
+  }
+  function isLive(a) { return a.status === 'Live'; }
+
+  /* ---------- Data ---------- */
+  function normalizeApp(a, i) {
+    a = a && typeof a === 'object' ? a : {};
+    var feats = Array.isArray(a.features) ? a.features.map(str).filter(Boolean).slice(0, 6) : [];
+    return {
+      id: str(a.id) || uid(),
+      no: Math.max(1, parseInt(a.no, 10) || (i + 1)),
+      name: str(a.name) || 'Untitled app',
+      mark: str(a.mark).slice(0, 2),
+      tagline: str(a.tagline),
+      description: str(a.description),
+      url: str(a.url),
+      industry: str(a.industry) || 'Other',
+      type: str(a.type) || 'Web app',
+      status: STATUSES.indexOf(a.status) !== -1 ? a.status : 'Live',
+      client: str(a.client),
+      platform: str(a.platform),
+      stack: str(a.stack),
+      since: /^\d{4}-\d{2}$/.test(str(a.since)) ? str(a.since) : '',
+      features: feats,
+      repo: str(a.repo),
+      present: a.present !== false
+    };
+  }
+  function normalize(d) {
+    d = d && typeof d === 'object' ? d : {};
+    var s = d.settings && typeof d.settings === 'object' ? d.settings : {};
+    var out = {
+      version: 1,
+      updated: str(d.updated),
+      settings: { title: str(s.title) || 'App Portfolio', owner: str(s.owner), subtitle: str(s.subtitle) },
+      apps: (Array.isArray(d.apps) ? d.apps : []).map(normalizeApp)
+    };
+    var seen = {};
+    out.apps.forEach(function (a) { if (seen[a.id]) a.id = uid(); seen[a.id] = true; });
+    return out;
+  }
+  function parseEmbedded() {
+    try { return JSON.parse(document.getElementById('pf-data').textContent); } catch (e) { return {}; }
+  }
+
+  function hashText(t) { var h = 5381; for (var i = 0; i < t.length; i++) h = ((h << 5) + h + t.charCodeAt(i)) | 0; return String(h >>> 0); }
+  var state = normalize(parseEmbedded());
+  var FILE_STAMP = hashText(document.getElementById('pf-data').textContent || '');
+  var mode = 'readonly';           // 'readonly' | 'artifact' | 'local'
+  var artifactNS = null;
+  var busy = false;
+  var ui = { group: 'industry', q: '' };
+  var savedUi = lsGet(UI_KEY);
+  if (savedUi && ['industry', 'type', 'status', 'client'].indexOf(savedUi.group) !== -1) ui.group = savedUi.group;
+
+  function findApp(id) { for (var i = 0; i < state.apps.length; i++) if (state.apps[i].id === id) return state.apps[i]; return null; }
+  function industryColors() {
+    var map = {}, n = 0;
+    state.apps.slice().sort(function (a, b) { return a.no - b.no; }).forEach(function (a) {
+      if (!Object.prototype.hasOwnProperty.call(map, a.industry)) { map[a.industry] = (n % 6) + 1; n++; }
+    });
+    return map;
+  }
+  function keyOf(a, by) {
+    if (by === 'status') return a.status;
+    if (by === 'type') return a.type || 'Other';
+    if (by === 'client') return a.client || 'Unassigned';
+    return a.industry;
+  }
+  function appSort(a, b) {
+    var s = STATUSES.indexOf(a.status) - STATUSES.indexOf(b.status);
+    if (s) return s;
+    if (a.since !== b.since) return a.since < b.since ? 1 : -1;
+    return a.name.localeCompare(b.name);
+  }
+  function groupsOf(apps, by) {
+    var m = {}, order = [];
+    apps.forEach(function (a) { var k = keyOf(a, by); if (!m[k]) { m[k] = []; order.push(k); } m[k].push(a); });
+    function minNo(list) { return list.reduce(function (x, a) { return Math.min(x, a.no); }, Infinity); }
+    order.sort(function (x, y) {
+      if (by === 'status') return STATUSES.indexOf(x) - STATUSES.indexOf(y);
+      var d = m[y].length - m[x].length;
+      return d || (minNo(m[x]) - minNo(m[y]));
+    });
+    return order.map(function (k) { return { key: k, apps: m[k].slice().sort(appSort) }; });
+  }
+
+  /* ---------- Mount ---------- */
+  var root = document.getElementById('app');
+  root.appendChild(document.importNode(document.getElementById('pf-shell').content, true));
+  function $(sel) { return root.querySelector(sel); }
+  function $all(sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
+  function byId(id) { return document.getElementById(id); }
+
+  /* ---------- Library rendering ---------- */
+  function pillHTML(status) {
+    return '<span class="pill ' + (STATUS_CLASS[status] || '') + '"><i aria-hidden="true"></i>' + esc(status) + '</span>';
+  }
+  function tileHTML(a, colors) {
+    var cat = 'cat-' + (colors[a.industry] || 1);
+    var link = a.url
+      ? '<a class="tile-link" href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.name) + '</a>'
+      : '<button type="button" class="tile-link" data-detail="' + esc(a.id) + '">' + esc(a.name) + '</button>';
+    var meta = [a.client, a.type].filter(Boolean).map(esc).join('<span aria-hidden="true">·</span>');
+    return '<article class="tile ' + cat + '">' +
+      '<div class="tile-top"><span class="app-icon" aria-hidden="true">' + esc(markOf(a)) + '</span>' + pillHTML(a.status) + '</div>' +
+      '<h3 class="tile-name">' + link + '</h3>' +
+      (a.tagline ? '<p class="tile-tag">' + esc(a.tagline) + '</p>' : '') +
+      (meta ? '<p class="tile-meta">' + meta + '</p>' : '') +
+      '<div class="tile-foot">' +
+        (a.url ? '<span class="host">' + esc(hostOf(a.url)) + ' <span class="arr" aria-hidden="true">↗</span></span>' : '<span class="host none">No link yet</span>') +
+        '<button type="button" class="tile-info" data-detail="' + esc(a.id) + '" aria-label="Details for ' + esc(a.name) + '">Details</button>' +
+      '</div>' +
+    '</article>';
+  }
+  function renderSummary() {
+    var apps = state.apps, colors = industryColors();
+    var live = apps.filter(isLive).length;
+    var inds = groupsOf(apps, 'industry');
+    function stat(label, n) { return '<div class="stat"><dt>' + esc(label) + '</dt><dd>' + n + '</dd></div>'; }
+    byId('stats').innerHTML = stat('Apps', apps.length) + stat('Live', live) + stat('In the works', apps.length - live) + stat('Industries', inds.length);
+    byId('alloc').hidden = !apps.length;
+    byId('alloc-total').textContent = plural(apps.length, 'app');
+    byId('alloc-bar').innerHTML = inds.map(function (g) {
+      return '<span class="cat-' + colors[g.key] + '" style="flex-grow:' + g.apps.length + '" title="' + esc(g.key) + ': ' + plural(g.apps.length, 'app') + '"></span>';
+    }).join('');
+    byId('alloc-legend').innerHTML = inds.map(function (g) {
+      var pct = Math.round(g.apps.length / apps.length * 100);
+      return '<li class="cat-' + colors[g.key] + '"><span class="dot" aria-hidden="true"></span>' + esc(g.key) + ' <b>' + g.apps.length + '</b><span>' + pct + '%</span></li>';
+    }).join('');
+  }
+  function renderGroups() {
+    var el = byId('groups');
+    var colors = industryColors();
+    var q = ui.q.toLowerCase().trim();
+    if (!state.apps.length) {
+      el.innerHTML = '<div class="empty"><strong>No apps in the portfolio yet</strong><p>Add each app with its link, industry and status. Tapping a tile then opens the app.</p>' +
+        (mode !== 'readonly' ? '<button type="button" class="btn primary" id="btn-add-empty">Add your first app</button>' : '') + '</div>';
+      return;
+    }
+    var apps = state.apps.filter(function (a) {
+      if (!q) return true;
+      return [a.name, a.tagline, a.industry, a.client, a.type, a.status, a.description, a.stack].join(' ').toLowerCase().indexOf(q) !== -1;
+    });
+    if (!apps.length) {
+      el.innerHTML = '<div class="empty"><strong>No apps match “' + esc(ui.q) + '”</strong><p>Try an app name, a client or an industry.</p></div>';
+      return;
+    }
+    el.innerHTML = groupsOf(apps, ui.group).map(function (g) {
+      var live = g.apps.filter(isLive).length;
+      var cls = ui.group === 'industry' ? 'cat-' + colors[g.key] : (ui.group === 'status' ? (GROUP_STATUS_CLASS[g.key] || '') : '');
+      var count = plural(g.apps.length, 'app') + (ui.group !== 'status' ? ' · ' + live + ' live' : '');
+      return '<section class="group ' + cls + '" aria-label="' + esc(g.key) + '">' +
+        '<div class="group-head"><h2><span class="dot" aria-hidden="true"></span>' + esc(g.key) + '</h2><span class="group-count">' + count + '</span></div>' +
+        '<div class="grid">' + g.apps.map(function (a) { return tileHTML(a, colors); }).join('') + '</div>' +
+      '</section>';
+    }).join('');
+  }
+  function renderFoot() {
+    var notes = {
+      artifact: 'You can edit this portfolio. Each save publishes it for everyone you share it with.',
+      local: 'Edits made here are saved on this device only.',
+      readonly: 'View only.'
+    };
+    byId('mode-note').textContent = notes[mode] || '';
+    byId('updated-note').textContent = state.updated ? 'Updated ' + fmtDate(state.updated) : '';
+  }
+  function bindText() {
+    $all('[data-bind]').forEach(function (el) {
+      var v = state.settings[el.getAttribute('data-bind')] || '';
+      el.textContent = v;
+      el.hidden = !v;
+    });
+  }
+  function syncSeg() {
+    $all('[data-group]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-group') === ui.group)); });
+  }
+  function renderAll() {
+    root.classList.toggle('can-edit', mode !== 'readonly');
+    bindText();
+    renderSummary();
+    renderGroups();
+    renderFoot();
+    syncSeg();
+  }
+
+  /* ---------- Toast and messages ---------- */
+  var toastTimer = null;
+  function toast(msg) {
+    var t = byId('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove('show'); }, 3400);
+  }
+  function notify(msg, ok) {
+    var open = root.querySelector('dialog[open] .form-msg');
+    if (open) { open.textContent = msg; open.classList.toggle('ok', !!ok); return; }
+    toast(msg);
+  }
+
+  /* ---------- Dialogs ---------- */
+  function openDialog(id) {
+    var d = byId(id);
+    if (d.open) return;
+    if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+  }
+  function closeDialog(id) {
+    var d = byId(id);
+    if (!d || !d.open) return;
+    if (typeof d.close === 'function') d.close(); else d.removeAttribute('open');
+  }
+  function closeAllDialogs() { ['dlg-detail', 'dlg-edit', 'dlg-settings'].forEach(closeDialog); }
+  ['dlg-detail', 'dlg-edit', 'dlg-settings'].forEach(function (id) {
+    var d = byId(id);
+    d.addEventListener('click', function (e) { if (e.target === d && !busy) closeDialog(id); });
+    d.addEventListener('cancel', function (e) { if (busy) e.preventDefault(); });
+  });
+
+  function detailHTML(a) {
+    var colors = industryColors();
+    var rUrl = repoUrl(a.repo);
+    var rows = [
+      ['Industry', esc(a.industry)],
+      ['Type', esc(a.type)],
+      ['Status', pillHTML(a.status)],
+      ['Built for', esc(a.client)],
+      ['Platform', esc(a.platform)],
+      ['Tech stack', esc(a.stack)],
+      ['Since', esc(fmtSince(a.since))],
+      ['Repository', rUrl ? '<a href="' + esc(rUrl) + '" target="_blank" rel="noopener">' + esc(a.repo) + '</a>' : esc(a.repo)],
+      ['Link', a.url ? '<a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(hostOf(a.url)) + '</a>' : 'Not published yet'],
+      ['Presentation', a.present ? 'Included' : 'Left out']
+    ].filter(function (r) { return r[1]; });
+    var close = '<button type="button" class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg></button>';
+    return '<div class="sheet-head cat-' + (colors[a.industry] || 1) + '">' +
+        '<span class="app-icon lg" aria-hidden="true">' + esc(markOf(a)) + '</span>' +
+        '<div class="sheet-title"><p class="eyebrow">No. ' + pad2(a.no) + ' · ' + esc(a.industry) + '</p><h2 id="d-name">' + esc(a.name) + '</h2>' +
+        (a.tagline ? '<p class="d-tag">' + esc(a.tagline) + '</p>' : '') + '</div>' + close +
+      '</div>' +
+      '<div class="sheet-body cat-' + (colors[a.industry] || 1) + '">' +
+        (a.description ? '<p class="d-desc">' + esc(a.description) + '</p>' : '') +
+        (a.features.length ? '<ul class="d-features">' + a.features.map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul>' : '') +
+        '<dl class="d-meta">' + rows.map(function (r) { return '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>'; }).join('') + '</dl>' +
+        '<input class="link-field" id="d-link" readonly hidden aria-label="App link">' +
+        '<p class="form-msg" role="status"></p>' +
+      '</div>' +
+      '<div class="sheet-foot">' +
+        '<button type="button" class="btn edit-only" data-edit="' + esc(a.id) + '">Edit</button>' +
+        '<span class="grow"></span>' +
+        (a.url ? '<button type="button" class="btn" data-copy="' + esc(a.url) + '">Copy link</button>' +
+                 '<a class="btn primary" href="' + esc(a.url) + '" target="_blank" rel="noopener">Open app ↗</a>'
+               : '<button type="button" class="btn" data-close>Close</button>') +
+      '</div>';
+  }
+  function openDetail(id) {
+    var a = findApp(id);
+    if (!a) return;
+    byId('detail-body').innerHTML = detailHTML(a);
+    openDialog('dlg-detail');
+  }
+  function copyLink(url) {
+    function fallback() {
+      var inp = byId('d-link');
+      if (inp) { inp.hidden = false; inp.value = url; inp.focus(); inp.select(); }
+      notify('Link selected. Copy it with ⌘C or Ctrl+C.');
+    }
+    try {
+      navigator.clipboard.writeText(url).then(function () { notify('Link copied.', true); }, fallback);
+    } catch (e) { fallback(); }
+  }
+
+  /* ---------- Editor ---------- */
+  var editingId = null;
+  function setVal(id, v) { byId(id).value = v == null ? '' : v; }
+  function val(id) { return str(byId(id).value); }
+  function fillDatalist(id, base, field) {
+    var seen = {}, out = [];
+    state.apps.map(function (a) { return a[field]; }).concat(base).forEach(function (v) {
+      if (v && !seen[v.toLowerCase()]) { seen[v.toLowerCase()] = true; out.push(v); }
+    });
+    byId(id).innerHTML = out.map(function (v) { return '<option value="' + esc(v) + '"></option>'; }).join('');
+  }
+  function openEditor(id) {
+    var a = id ? findApp(id) : null;
+    editingId = a ? a.id : null;
+    byId('edit-title').textContent = a ? 'Edit ' + a.name : 'Add an app';
+    setVal('f-name', a ? a.name : '');
+    setVal('f-url', a ? a.url : '');
+    setVal('f-tagline', a ? a.tagline : '');
+    setVal('f-desc', a ? a.description : '');
+    setVal('f-industry', a ? a.industry : '');
+    setVal('f-type', a ? a.type : 'iPhone web app');
+    setVal('f-status', a ? a.status : 'Live');
+    setVal('f-client', a ? a.client : '');
+    setVal('f-platform', a ? a.platform : 'iPhone Home Screen, Vercel');
+    setVal('f-since', a ? a.since : todayISO().slice(0, 7));
+    setVal('f-stack', a ? a.stack : '');
+    setVal('f-features', a ? a.features.join('\n') : '');
+    setVal('f-repo', a ? a.repo : '');
+    setVal('f-mark', a ? a.mark : '');
+    byId('f-present').checked = a ? a.present : true;
+    byId('btn-delete').hidden = !a;
+    byId('del-confirm').hidden = true;
+    byId('err-name').hidden = true;
+    byId('err-url').hidden = true;
+    byId('edit-msg').textContent = '';
+    fillDatalist('dl-industry', BASE_INDUSTRIES, 'industry');
+    fillDatalist('dl-type', BASE_TYPES, 'type');
+    fillDatalist('dl-client', BASE_CLIENTS, 'client');
+    closeDialog('dlg-detail');
+    openDialog('dlg-edit');
+    setTimeout(function () { try { byId('f-name').focus(); } catch (e) { /* ignore */ } }, 40);
+  }
+  function openSettings() {
+    setVal('s-title', state.settings.title);
+    setVal('s-owner', state.settings.owner);
+    setVal('s-subtitle', state.settings.subtitle);
+    byId('set-msg').textContent = '';
+    openDialog('dlg-settings');
+  }
+  function setBusy(on) {
+    busy = on;
+    [['btn-save', 'Save app', 'Saving…'], ['btn-save-settings', 'Save details', 'Saving…'], ['del-go', 'Delete app', 'Deleting…']].forEach(function (b) {
+      var el = byId(b[0]);
+      if (!el) return;
+      el.disabled = on;
+      el.textContent = on ? b[2] : b[1];
+    });
+  }
+
+  byId('edit-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (busy) return;
+    var name = val('f-name');
+    byId('err-name').hidden = !!name;
+    if (!name) { byId('f-name').focus(); return; }
+    var url = normalizeUrl(byId('f-url').value);
+    byId('err-url').hidden = url !== null;
+    if (url === null) { byId('f-url').focus(); return; }
+    var next = clone(state);
+    var app = {
+      id: editingId || uid(),
+      no: 0,
+      name: name,
+      mark: val('f-mark'),
+      tagline: val('f-tagline'),
+      description: val('f-desc'),
+      url: url,
+      industry: val('f-industry') || 'Other',
+      type: val('f-type') || 'Web app',
+      status: byId('f-status').value,
+      client: val('f-client'),
+      platform: val('f-platform'),
+      stack: val('f-stack'),
+      since: val('f-since'),
+      features: byId('f-features').value.split(/\n+/).map(str).filter(Boolean).slice(0, 6),
+      repo: val('f-repo').replace(/^https?:\/\/github\.com\//i, '').replace(/\/+$/, ''),
+      present: byId('f-present').checked
+    };
+    var idx = -1;
+    next.apps.forEach(function (x, i) { if (x.id === editingId) idx = i; });
+    if (idx !== -1) { app.no = next.apps[idx].no; next.apps[idx] = app; }
+    else { app.no = next.apps.reduce(function (m, x) { return Math.max(m, x.no); }, 0) + 1; next.apps.push(app); }
+    next.updated = todayISO();
+    commit(next, (idx !== -1 ? 'Saved changes to ' : 'Added ') + name);
+  });
+  byId('btn-delete').addEventListener('click', function () {
+    var a = findApp(editingId);
+    if (!a) return;
+    byId('del-text').textContent = 'Delete ' + a.name + '? It will be removed from the portfolio and the presentation.';
+    byId('del-confirm').hidden = false;
+    byId('del-go').focus();
+  });
+  byId('del-keep').addEventListener('click', function () { byId('del-confirm').hidden = true; });
+  byId('del-go').addEventListener('click', function () {
+    if (busy) return;
+    var a = findApp(editingId);
+    if (!a) return;
+    var next = clone(state);
+    next.apps = next.apps.filter(function (x) { return x.id !== a.id; });
+    next.updated = todayISO();
+    commit(next, 'Deleted ' + a.name);
+  });
+  byId('settings-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (busy) return;
+    var next = clone(state);
+    next.settings = { title: val('s-title') || 'App Portfolio', owner: val('s-owner'), subtitle: val('s-subtitle') };
+    next.updated = todayISO();
+    commit(next, 'Saved portfolio details');
+  });
+
+  /* ---------- Saving ---------- */
+  function buildDocument(s) {
+    var json = JSON.stringify(s, null, 1)
+      .replace(/</g, '\\u003c')
+      .split(String.fromCharCode(0x2028)).join('\\u2028')
+      .split(String.fromCharCode(0x2029)).join('\\u2029');
+    return SKELETON_OPEN +
+      '<title>' + esc(PAGE_TITLE) + '</title>\n' +
+      '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
+      '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
+      '<link rel="stylesheet" href="' + FONT_HREF.replace(/&/g, '&amp;') + '">\n' +
+      OPEN_SCRIPT + ' async src="' + QR_SRC + '">' + SC + '\n' +
+      '<style id="pf-style">' + byId('pf-style').textContent + '</style>\n' +
+      '<template id="pf-shell">' + byId('pf-shell').innerHTML + '</template>\n' +
+      '<div id="app"></div>\n' +
+      OPEN_SCRIPT + ' type="application/json" id="pf-data">' + json + SC + '\n' +
+      OPEN_SCRIPT + ' id="pf-app">' + byId('pf-app').textContent + SC + '\n' +
+      SKELETON_CLOSE;
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function publishOnce(html, retries) {
+    return artifactNS.publish(html).catch(function (err) {
+      var code = err && err.code;
+      var retryable = code === 'upstream_error' || KNOWN_CODES.indexOf(code) === -1;
+      if (retries > 0 && retryable) return wait(500 + Math.random() * 800).then(function () { return publishOnce(html, retries - 1); });
+      throw err;
+    });
+  }
+  function handleSaveError(err) {
+    var code = err && err.code;
+    if (code === 'conflict') { notify('A newer version was saved a moment ago. Loading it now.'); return; }
+    if (READ_ONLY_CODES.indexOf(code) !== -1) {
+      mode = 'readonly';
+      closeAllDialogs();
+      renderAll();
+      toast('This portfolio is view only for you, so changes can’t be saved.');
+      return;
+    }
+    if (code === 'rate_limited') { notify('Too many saves in a row. Wait a few seconds, then save again.'); return; }
+    if (code === 'too_large') { notify('The portfolio is too large to save. Shorten some descriptions, then save again.'); return; }
+    notify('Couldn’t save right now. Your changes are still here, so try saving again.');
+  }
+  function commit(next, msg) {
+    next = normalize(next);
+    if (mode === 'artifact' && artifactNS) {
+      setBusy(true);
+      ssSet(FLASH_KEY, msg + '.');
+      publishOnce(buildDocument(next), 1).then(function () {
+        state = next; /* the page reloads to the new version */
+      }, function (err) {
+        ssTake(FLASH_KEY);
+        setBusy(false);
+        handleSaveError(err);
+      });
+      return;
+    }
+    if (mode === 'local') {
+      if (!lsSet(LOCAL_KEY, { base: FILE_STAMP, data: next })) { notify('Couldn’t save on this device. Browser storage is full or turned off.'); return; }
+      state = next;
+      closeAllDialogs();
+      renderAll();
+      toast(msg + '.');
+      return;
+    }
+    notify('This portfolio is view only, so changes can’t be saved here.');
+  }
+
+  /* ---------- Presentation ---------- */
+  var stageEl = byId('stage');
+  var stageBody = byId('stage-body');
+  var deck = [], cur = 0, lastFocus = null, qrTimer = null;
+
+  function presentable() { return state.apps.filter(function (a) { return a.present; }); }
+  function industriesLabel(n) { return plural(n, 'industry', 'industries'); }
+  function buildDeck() {
+    var apps = presentable();
+    var ordered = [];
+    groupsOf(apps, 'industry').forEach(function (g) { ordered = ordered.concat(g.apps); });
+    var d = [{ kind: 'cover', apps: apps }];
+    if (apps.length) {
+      d.push({ kind: 'index', apps: ordered });
+      ordered.forEach(function (a) { d.push({ kind: 'app', app: a }); });
+      d.push({ kind: 'next', apps: ordered });
+    }
+    return d;
+  }
+  function kpi(label, n) { return '<div><dt>' + esc(label) + '</dt><dd>' + n + '</dd></div>'; }
+  function coverHTML(apps) {
+    var colors = industryColors();
+    var inds = groupsOf(apps, 'industry');
+    var live = apps.filter(isLive).length;
+    var now = new Date();
+    var st = state.settings;
+    var alloc = apps.length
+      ? '<div class="s-alloc"><p class="s-label">Allocation by industry</p>' +
+          '<div class="s-alloc-bar">' + inds.map(function (g) { return '<span class="cat-' + colors[g.key] + '" style="flex-grow:' + g.apps.length + '"></span>'; }).join('') + '</div>' +
+          '<ul class="s-alloc-legend">' + inds.map(function (g) {
+            return '<li class="cat-' + colors[g.key] + '"><i aria-hidden="true"></i><span><b>' + esc(g.key) + '</b> · ' + g.apps.length +
+              '<small>' + esc(g.apps.map(function (a) { return a.name; }).join(', ')) + '</small></span></li>';
+          }).join('') + '</ul></div>'
+      : '<p class="s-desc">Add apps to the portfolio and they appear here.</p>';
+    return '<section class="slide slide-cover">' +
+      '<p class="s-eyebrow">Portfolio review · ' + MONTHS_LONG[now.getMonth()] + ' ' + now.getFullYear() + '</p>' +
+      '<h2 class="s-mega">' + esc(st.title) + '</h2>' +
+      (st.subtitle ? '<p class="s-lede">' + esc(st.subtitle) + '</p>' : '') +
+      (st.owner ? '<p class="s-by">Presented by <strong>' + esc(st.owner) + '</strong></p>' : '') +
+      '<dl class="s-kpis">' + kpi('Apps', apps.length) + kpi('Live', live) + kpi('In the works', apps.length - live) + kpi('Industries', inds.length) + '</dl>' +
+      alloc +
+    '</section>';
+  }
+  function indexHTML(apps) {
+    var colors = industryColors();
+    var inds = groupsOf(apps, 'industry').length;
+    return '<section class="slide slide-index">' +
+      '<p class="s-eyebrow">The portfolio at a glance</p>' +
+      '<h2 class="s-title">' + plural(apps.length, 'app') + ' across ' + industriesLabel(inds) + '</h2>' +
+      '<div class="s-table-wrap"><table class="s-table"><thead><tr><th>App</th><th>Industry</th><th class="hide-sm">Built for</th><th>Status</th><th class="hide-sm">Since</th></tr></thead><tbody>' +
+      apps.map(function (a) {
+        return '<tr class="cat-' + (colors[a.industry] || 1) + '">' +
+          '<td><div class="s-app"><span class="app-icon sm" aria-hidden="true">' + esc(markOf(a)) + '</span><span><b>' + esc(a.name) + '</b>' + (a.tagline ? '<small>' + esc(a.tagline) + '</small>' : '') + '</span></div></td>' +
+          '<td><span class="s-ind"><i aria-hidden="true"></i>' + esc(a.industry) + '</span></td>' +
+          '<td class="hide-sm">' + esc(a.client) + '</td>' +
+          '<td>' + pillHTML(a.status) + '</td>' +
+          '<td class="num hide-sm">' + esc(fmtSince(a.since)) + '</td>' +
+        '</tr>';
+      }).join('') +
+      '</tbody></table></div>' +
+    '</section>';
+  }
+  function appSlideHTML(a) {
+    var colors = industryColors();
+    var meta = [['Built for', a.client], ['Type', a.type], ['Platform', a.platform], ['Tech stack', a.stack], ['Since', fmtSince(a.since)]]
+      .filter(function (r) { return r[1]; });
+    var open = a.url
+      ? '<div class="s-open"><div class="qr" data-qr="' + esc(a.url) + '"></div><div class="s-open-text">' +
+          '<p class="s-scan">Scan to open on your phone</p><p class="s-host">' + esc(hostOf(a.url)) + '</p>' +
+          '<a class="s-btn" href="' + esc(a.url) + '" target="_blank" rel="noopener">Open live app ↗</a></div></div>'
+      : '<p class="s-nolink">Not published yet. The link appears here once it goes live.</p>';
+    return '<section class="slide slide-app cat-' + (colors[a.industry] || 1) + '">' +
+      '<div class="s-main">' +
+        '<p class="s-eyebrow"><span class="s-ind"><i aria-hidden="true"></i>' + esc(a.industry) + '</span><span aria-hidden="true">/</span><span>No. ' + pad2(a.no) + '</span></p>' +
+        '<h2 class="s-name">' + esc(a.name) + '</h2>' +
+        (a.tagline ? '<p class="s-tag">' + esc(a.tagline) + '</p>' : '') +
+        (a.description ? '<p class="s-desc">' + esc(a.description) + '</p>' : '') +
+        (a.features.length ? '<ul class="s-feats">' + a.features.map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul>' : '') +
+      '</div>' +
+      '<aside class="s-side">' +
+        '<div class="s-side-head"><span class="app-icon xl" aria-hidden="true">' + esc(markOf(a)) + '</span>' + pillHTML(a.status) + '</div>' +
+        (meta.length ? '<dl class="s-meta">' + meta.map(function (r) { return '<div><dt>' + r[0] + '</dt><dd>' + esc(r[1]) + '</dd></div>'; }).join('') + '</dl>' : '') +
+        open +
+      '</aside>' +
+    '</section>';
+  }
+  function nextHTML(apps) {
+    var colors = industryColors();
+    var live = apps.filter(isLive).length;
+    var pipe = apps.filter(function (a) { return !isLive(a); });
+    var owner = state.settings.owner;
+    var list = pipe.length
+      ? '<ul class="s-pipe">' + pipe.map(function (a) {
+          return '<li class="cat-' + (colors[a.industry] || 1) + '"><span class="app-icon sm" aria-hidden="true">' + esc(markOf(a)) + '</span>' +
+            '<span><b>' + esc(a.name) + '</b><small>' + esc(a.tagline || a.industry) + '</small></span>' + pillHTML(a.status) + '</li>';
+        }).join('') + '</ul>'
+      : '';
+    return '<section class="slide slide-next">' +
+      '<p class="s-eyebrow">What’s next</p>' +
+      '<h2 class="s-title">' + (pipe.length ? 'In the works' : 'Every app is live') + '</h2>' +
+      list +
+      '<p class="s-close"><strong>' + live + ' live</strong> today' + (pipe.length ? ', <strong>' + pipe.length + ' in the works</strong>' : '') + '.' +
+        (owner ? ' Built and run by ' + esc(owner) + '.' : '') + ' Thank you.</p>' +
+    '</section>';
+  }
+  function slideHTML(s) {
+    if (s.kind === 'cover') return coverHTML(s.apps);
+    if (s.kind === 'index') return indexHTML(s.apps);
+    if (s.kind === 'app') return appSlideHTML(s.app);
+    return nextHTML(s.apps);
+  }
+  function qrSVG(text) {
+    if (typeof window.qrcode !== 'function') return '';
+    try {
+      var q = window.qrcode(0, 'M');
+      q.addData(text);
+      q.make();
+      var n = q.getModuleCount(), d = '';
+      for (var r = 0; r < n; r++) for (var c = 0; c < n; c++) if (q.isDark(r, c)) d += 'M' + c + ' ' + r + 'h1v1h-1z';
+      return '<svg viewBox="0 0 ' + n + ' ' + n + '" shape-rendering="crispEdges" role="img" aria-label="QR code for ' + esc(hostOf(text)) + '">' +
+        '<rect width="' + n + '" height="' + n + '" fill="#FFFFFF" style="fill:var(--qr-bg)"/><path d="' + d + '" fill="#0A0C11" style="fill:var(--qr-ink)"/></svg>';
+    } catch (e) { return ''; }
+  }
+  function drawQRs(tries) {
+    clearTimeout(qrTimer);
+    var pending = false;
+    Array.prototype.slice.call(stageBody.querySelectorAll('[data-qr]')).forEach(function (el) {
+      if (el.firstChild) return;
+      var svg = qrSVG(el.getAttribute('data-qr'));
+      if (svg) el.innerHTML = svg; else pending = true;
+    });
+    if (pending && tries < 12) qrTimer = setTimeout(function () { drawQRs(tries + 1); }, 500);
+  }
+  function renderSlide(dir) {
+    var s = deck[cur];
+    stageBody.innerHTML = slideHTML(s);
+    var el = stageBody.firstElementChild;
+    if (el) el.style.setProperty('--dir', dir < 0 ? '-24px' : '24px');
+    byId('stage-count').textContent = pad2(cur + 1) + ' / ' + pad2(deck.length);
+    byId('stage-bar').style.width = ((cur + 1) / deck.length * 100) + '%';
+    byId('st-prev').disabled = cur === 0;
+    byId('st-next').disabled = cur === deck.length - 1;
+    stageBody.scrollTop = 0;
+    drawQRs(0);
+  }
+  function go(step) {
+    var n = Math.max(0, Math.min(deck.length - 1, cur + step));
+    if (n === cur) return;
+    cur = n;
+    renderSlide(step);
+  }
+  function fullscreenSupported() { return !!(stageEl.requestFullscreen || stageEl.webkitRequestFullscreen); }
+  function enterFullscreen() {
+    try {
+      var p = stageEl.requestFullscreen ? stageEl.requestFullscreen() : (stageEl.webkitRequestFullscreen && stageEl.webkitRequestFullscreen());
+      if (p && typeof p.catch === 'function') p.catch(function () { /* optional */ });
+    } catch (e) { /* optional */ }
+  }
+  function exitFullscreen() {
+    try {
+      if (document.fullscreenElement && document.exitFullscreen) { var p = document.exitFullscreen(); if (p && p.catch) p.catch(function () {}); }
+      else if (document.webkitFullscreenElement && document.webkitExitFullscreen) document.webkitExitFullscreen();
+    } catch (e) { /* optional */ }
+  }
+  function syncFullBtn() {
+    var on = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    byId('st-full').textContent = on ? 'Exit full screen' : 'Full screen';
+  }
+  function openStage() {
+    lastFocus = document.activeElement;
+    deck = buildDeck();
+    cur = 0;
+    var st = state.settings;
+    byId('stage-brand').textContent = [st.owner, st.title].filter(Boolean).join(' · ');
+    byId('st-full').hidden = !fullscreenSupported();
+    stageEl.hidden = false;
+    document.body.classList.add('presenting');
+    renderSlide(1);
+    try { stageEl.focus({ preventScroll: true }); } catch (e) { stageEl.focus(); }
+    if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) enterFullscreen();
+    syncFullBtn();
+  }
+  function closeStage() {
+    exitFullscreen();
+    stageEl.hidden = true;
+    document.body.classList.remove('presenting');
+    clearTimeout(qrTimer);
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+  byId('st-prev').addEventListener('click', function () { go(-1); });
+  byId('st-next').addEventListener('click', function () { go(1); });
+  byId('st-close').addEventListener('click', closeStage);
+  byId('st-full').addEventListener('click', function () {
+    if (document.fullscreenElement || document.webkitFullscreenElement) exitFullscreen(); else enterFullscreen();
+  });
+  document.addEventListener('fullscreenchange', syncFullBtn);
+  document.addEventListener('webkitfullscreenchange', syncFullBtn);
+  document.addEventListener('keydown', function (e) {
+    if (stageEl.hidden) return;
+    var t = e.target, tag = t && t.tagName;
+    var onControl = tag === 'BUTTON' || tag === 'A' || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === 'ArrowDown' && !onControl) { e.preventDefault(); go(1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'ArrowUp' && !onControl) { e.preventDefault(); go(-1); }
+    else if ((k === ' ' || k === 'Enter') && !onControl) { e.preventDefault(); go(e.shiftKey ? -1 : 1); }
+    else if (k === 'Home') { e.preventDefault(); go(-deck.length); }
+    else if (k === 'End') { e.preventDefault(); go(deck.length); }
+    else if (k === 'Escape') { e.preventDefault(); closeStage(); }
+    else if ((k === 'f' || k === 'F') && !onControl && fullscreenSupported()) { e.preventDefault(); if (document.fullscreenElement || document.webkitFullscreenElement) exitFullscreen(); else enterFullscreen(); }
+  });
+  var swipeX = null, swipeY = 0;
+  stageBody.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') return; swipeX = e.clientX; swipeY = e.clientY; });
+  stageBody.addEventListener('pointerup', function (e) {
+    if (swipeX === null) return;
+    var dx = e.clientX - swipeX, dy = e.clientY - swipeY;
+    swipeX = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.4) go(dx < 0 ? 1 : -1);
+  });
+  stageBody.addEventListener('pointercancel', function () { swipeX = null; });
+
+  /* ---------- Library events ---------- */
+  root.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-detail],[data-edit],[data-close],[data-copy],[data-group],#btn-add,#btn-add-empty,#btn-settings,#btn-present') : null;
+    if (!t) return;
+    if (t.hasAttribute('data-detail')) { e.preventDefault(); openDetail(t.getAttribute('data-detail')); }
+    else if (t.hasAttribute('data-edit')) { if (mode !== 'readonly') openEditor(t.getAttribute('data-edit')); }
+    else if (t.hasAttribute('data-close')) { if (!busy) { var d = t.closest('dialog'); if (d) closeDialog(d.id); } }
+    else if (t.hasAttribute('data-copy')) { copyLink(t.getAttribute('data-copy')); }
+    else if (t.hasAttribute('data-group')) {
+      ui.group = t.getAttribute('data-group');
+      lsSet(UI_KEY, { group: ui.group });
+      syncSeg();
+      renderGroups();
+    }
+    else if (t.id === 'btn-add' || t.id === 'btn-add-empty') { if (mode !== 'readonly') openEditor(null); }
+    else if (t.id === 'btn-settings') { if (mode !== 'readonly') openSettings(); }
+    else if (t.id === 'btn-present') { openStage(); }
+  });
+  byId('q').addEventListener('input', function (e) { ui.q = e.target.value; renderGroups(); });
+
+  /* ---------- Boot ---------- */
+  renderAll();
+  var flash = ssTake(FLASH_KEY);
+  if (flash) setTimeout(function () { toast(flash); }, 300);
+
+  (function detectMode() {
+    var c = window.claude;
+    if (!c || typeof c.use !== 'function') {
+      // A copy of this page hosted anywhere else: edits live in this browser.
+      // A newer published list replaces edits made against an older one.
+      var saved = lsGet(LOCAL_KEY);
+      if (saved && saved.data && Array.isArray(saved.data.apps)) {
+        if (saved.base === FILE_STAMP) state = normalize(saved.data);
+        else { try { window.localStorage.removeItem(LOCAL_KEY); } catch (e) { /* ignore */ } setTimeout(function () { toast('Loaded the latest app list.'); }, 400); }
+      }
+      mode = 'local';
+      renderAll();
+      return;
+    }
+    Promise.resolve()
+      .then(function () { return c.use('artifact'); })
+      .then(function (art) {
+        if (!art) return null;
+        artifactNS = art;
+        return Promise.resolve(c.use('user')).then(function (u) {
+          if (!u || typeof u.canEdit !== 'function') return true;
+          return u.canEdit().then(function (v) { return v !== false; }, function () { return true; });
+        }, function () { return true; });
+      })
+      .then(function (canWrite) {
+        mode = (artifactNS && canWrite) ? 'artifact' : 'readonly';
+        renderAll();
+      }, function () { mode = 'readonly'; renderAll(); });
+  })();
+})();
+</script>
+</body>
+</html>
